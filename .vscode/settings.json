@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "**/.gitignore": true,
+    "**/LICENSE": true,
+    "**/README.md": true
+  }
+}
