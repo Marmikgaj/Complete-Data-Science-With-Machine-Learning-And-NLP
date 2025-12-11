@@ -1,5 +1,7 @@
 {
   "files.exclude": {
+    "**/.vscode": true,
+    "**/.vscode/**": true,
     "**/.gitignore": true,
     "**/LICENSE": true,
     "**/README.md": true
