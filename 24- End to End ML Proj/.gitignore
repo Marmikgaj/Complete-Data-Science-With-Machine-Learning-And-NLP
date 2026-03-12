@@ -1,0 +1,17 @@
+# Environments
+venv/
+env/
+.env
+.venv
+
+# Python/Jupyter
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# ML specific / project outputs
+artifacts/
+catboost_info/
+*.model
+*.pkl
