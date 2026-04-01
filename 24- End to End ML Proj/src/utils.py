@@ -1,6 +1,7 @@
 import os
 import sys
 import dill
+from sklearn.model_selection import GridSearchCV
 
 from src.exception import CustomException
 
@@ -18,13 +19,18 @@ def save_objects(file_path, obj):
     except Exception as e:
         raise CustomException(e, sys)
 
-def evaluate_models(X_train, y_train, X_test, y_test, models):
+def evaluate_models(X_train, y_train, X_test, y_test, models, params):
     try:
         report = {}
         
         for i in range(len(list(models))):
             model = list(models.values())[i]
+            param = params[list(models.keys())[i]]
+
+            gs = GridSearchCV(model, param, cv=3)
+            gs.fit(X_train, y_train)
             
+            model.set_params(**gs.best_params_)
             # Train the models
             model.fit(X_train, y_train)
             
